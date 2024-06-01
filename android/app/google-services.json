@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296198897654",
+    "project_id": "flutter-kereta",
+    "storage_bucket": "flutter-kereta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296198897654:android:f4e2c4f644b6fd466e51d7",
+        "android_client_info": {
+          "package_name": "smk.dev.pas_xi_kereta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcvXDKVR3FiaV_OAgbImvn6m9q5CAL_vE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
