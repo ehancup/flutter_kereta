@@ -8,6 +8,8 @@ abstract class Routes {
   static const REGISTER = _Paths.REGISTER;
   static const ADMIN = _Paths.ADMIN;
   static const KERETA = _Paths.KERETA;
+  static const ADD_KERETA = _Paths.ADD_KERETA;
+  static const EDIT_KERETA = _Paths.EDIT_KERETA;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const REGISTER = '/register';
   static const ADMIN = '/admin';
   static const KERETA = '/kereta';
+  static const ADD_KERETA = '/add-kereta';
+  static const EDIT_KERETA = '/edit-kereta';
 }

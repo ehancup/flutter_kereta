@@ -1,7 +1,7 @@
 analyzer:
   errors:
     avoid_print: ignore
-    prefer_const_constructors: ignore
+    prefer_const_constructors: ignore ignore
     unused_local_variable: ignore
     use_key_in_widget_constructors: ignore
 include: package:flutter_lints/flutter.yaml

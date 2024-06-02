@@ -1,5 +1,9 @@
 import 'package:get/get.dart';
 
+import '../modules/AddKereta/bindings/add_kereta_binding.dart';
+import '../modules/AddKereta/views/add_kereta_view.dart';
+import '../modules/EditKereta/bindings/edit_kereta_binding.dart';
+import '../modules/EditKereta/views/edit_kereta_view.dart';
 import '../modules/admin/bindings/admin_binding.dart';
 import '../modules/admin/views/admin_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -43,6 +47,16 @@ class AppPages {
       name: _Paths.KERETA,
       page: () => KeretaView(),
       binding: KeretaBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_KERETA,
+      page: () => const AddKeretaView(),
+      binding: AddKeretaBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_KERETA,
+      page: () => const EditKeretaView(),
+      binding: EditKeretaBinding(),
     ),
   ];
 }
