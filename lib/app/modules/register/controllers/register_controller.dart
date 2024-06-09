@@ -7,4 +7,6 @@ class RegisterController extends GetxController {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController konfirmasi = TextEditingController();
+  var isPasswordVisible = false.obs;
+  var isConfirmationVisible = false.obs;
 }
