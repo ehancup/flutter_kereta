@@ -7,8 +7,6 @@ import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:lucide_icons/lucide_icons.dart';
 import 'package:pas_xi_kereta/app/controllers/auth_controller.dart';
 import 'package:pas_xi_kereta/app/routes/app_pages.dart';
 

@@ -12,9 +12,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(
-    MyApp()
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -30,7 +28,11 @@ class MyApp extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.active) {
           return GetMaterialApp(
             title: "Application",
-            initialRoute: snapshot.data != null ? auth.isAdmin.value ? Routes.ADMIN : Routes.HOME : Routes.LOGIN,
+            initialRoute: snapshot.data != null
+                ? auth.isAdmin.value
+                    ? Routes.ADMIN
+                    : Routes.HOME
+                : Routes.LOGIN,
             getPages: AppPages.routes,
             debugShowCheckedModeBanner: false,
           );
