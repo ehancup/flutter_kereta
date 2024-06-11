@@ -5,8 +5,6 @@ import 'package:pas_xi_kereta/app/modules/kereta/model/model.dart';
 import 'package:pas_xi_kereta/app/routes/app_pages.dart';
 
 class EditKeretaController extends GetxController {
-  //TODO: Implement EditKeretaController
-
   TextEditingController nama_kereta = TextEditingController();
   TextEditingController type = TextEditingController();
   TextEditingController jumlah_Kursi = TextEditingController();
@@ -21,35 +19,40 @@ class EditKeretaController extends GetxController {
   updateDataKereta(String id) async {
     CollectionReference kereta = fs.collection("kereta");
 
-    final keretaData = {
+    final newKeretaData = {
       "nama_kereta": nama_kereta.text,
       "type": type.text,
       "jumlah_kursi": int.parse(jumlah_Kursi.text)
     };
+
     try {
-      await kereta.doc(id).update(keretaData);
-      Get.defaultDialog(middleText: 'Berhasil');
-      Get.offAllNamed(Routes.KERETA);
+      DocumentSnapshot docSnapshot = await kereta.doc(id).get();
+      final existingData = docSnapshot.data() as Map<String, dynamic>?;
+
+      if (existingData != null) {
+        final existingKeretaData = {
+          "nama_kereta": existingData["nama_kereta"],
+          "type": existingData["type"],
+          "jumlah_kursi": existingData["jumlah_kursi"]
+        };
+
+        if (newKeretaData.toString() != existingKeretaData.toString()) {
+          await kereta.doc(id).update(newKeretaData);
+          Get.showSnackbar(GetSnackBar(
+            message: 'Data Kereta Berhasil di Update',
+            duration: Duration(seconds: 3),
+          ));
+          Get.offAllNamed(Routes.KERETA);
+        } else {
+          // Get.showSnackbar(GetSnackBar(
+          //   message: 'Tidak ada perubahan pada data',
+          //   duration: Duration(seconds: 3),
+          // ));
+          Get.offAllNamed(Routes.KERETA);
+        }
+      }
     } catch (e) {
       Get.defaultDialog(middleText: 'Gagal Mengupdate Data Kereta');
     }
   }
-
-  // final count = 0.obs;
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  // }
-
-  // @override
-  // void onReady() {
-  //   super.onReady();
-  // }
-
-  // @override
-  // void onClose() {
-  //   super.onClose();
-  // }
-
-  // void increment() => count.value++;
 }
