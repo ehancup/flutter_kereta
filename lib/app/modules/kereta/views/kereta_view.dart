@@ -45,7 +45,7 @@ class KeretaView extends GetView<KeretaController> {
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
                               IconButton(
-                                onPressed: () => Get.offAllNamed(
+                                onPressed: () => Get.toNamed(
                                     Routes.EDIT_KERETA,
                                     arguments: dt),
                                 icon: Icon(Icons.edit),

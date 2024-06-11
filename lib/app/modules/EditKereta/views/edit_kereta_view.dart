@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
@@ -9,7 +11,8 @@ class EditKeretaView extends GetView<EditKeretaController> {
   const EditKeretaView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Kereta data = Get.arguments;
+    Kereta data = Get.arguments as Kereta;
+    log("tesssssssssssssssssssssssssssssssssssssss");
     print('*************************KERETA*************************');
     print(data.id);
     controller.updateVariable(data);

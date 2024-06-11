@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -38,17 +40,18 @@ class EditKeretaController extends GetxController {
 
         if (newKeretaData.toString() != existingKeretaData.toString()) {
           await kereta.doc(id).update(newKeretaData);
+          log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
           Get.showSnackbar(GetSnackBar(
             message: 'Data Kereta Berhasil di Update',
             duration: Duration(seconds: 3),
           ));
-          Get.offAllNamed(Routes.KERETA);
+          Get.back();
         } else {
-          // Get.showSnackbar(GetSnackBar(
-          //   message: 'Tidak ada perubahan pada data',
-          //   duration: Duration(seconds: 3),
-          // ));
-          Get.offAllNamed(Routes.KERETA);
+          Get.showSnackbar(GetSnackBar(
+            message: 'Tidak ada perubahan pada data',
+            duration: Duration(seconds: 3),
+          ));
+          Get.back();
         }
       }
     } catch (e) {
