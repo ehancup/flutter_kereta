@@ -11,6 +11,7 @@ abstract class Routes {
   static const ADD_KERETA = _Paths.ADD_KERETA;
   static const EDIT_KERETA = _Paths.EDIT_KERETA;
   static const LUPA_PASSWORD = _Paths.LUPA_PASSWORD;
+  static const JADWAL = _Paths.JADWAL;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const ADD_KERETA = '/add-kereta';
   static const EDIT_KERETA = '/edit-kereta';
   static const LUPA_PASSWORD = '/lupa-password';
+  static const JADWAL = '/jadwal';
 }

@@ -2,6 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gap/gap.dart';
 
@@ -32,13 +33,16 @@ class LoginView extends GetView<LoginController> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 100,
-                height: 100,
+                width: MediaQuery.of(context).size.width,
+                height: 200,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('/assets/img/logo.png'),
-                  ),
+                      image: AssetImage('assets/img/logo.png'),
+                      fit: BoxFit.cover),
                 ),
+              ),
+              SizedBox(
+                height: 20,
               ),
               TextField(
                 controller: controller.email,

@@ -10,6 +10,8 @@ import '../modules/admin/bindings/admin_binding.dart';
 import '../modules/admin/views/admin_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/jadwal/bindings/jadwal_binding.dart';
+import '../modules/jadwal/views/jadwal_view.dart';
 import '../modules/kereta/bindings/kereta_binding.dart';
 import '../modules/kereta/views/kereta_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -64,6 +66,11 @@ class AppPages {
       name: _Paths.LUPA_PASSWORD,
       page: () => const LupaPasswordView(),
       binding: LupaPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.JADWAL,
+      page: () => const JadwalView(),
+      binding: JadwalBinding(),
     ),
   ];
 }

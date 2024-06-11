@@ -111,7 +111,7 @@ class AdminView extends GetView<AdminController> {
                     icon: Icons.schedule,
                     title: 'Jadwal',
                     color: Colors.orangeAccent,
-                    onTap: () {},
+                    onTap: () => Get.toNamed(Routes.JADWAL),
                   ),
                   // DashboardCard(
                   //   icon: Icons.schedule,
