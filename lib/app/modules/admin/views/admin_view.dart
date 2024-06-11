@@ -49,9 +49,9 @@ class AdminView extends GetView<AdminController> {
               onTap: () => Get.offAllNamed(Routes.KERETA),
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Users'),
-              onTap: () {},
+              leading: Icon(Icons.schedule),
+              title: Text('Jadwal Kereta'),
+              onTap: () => Get.offAllNamed(Routes.JADWAL),
             ),
             ListTile(
               leading: Icon(Icons.analytics),

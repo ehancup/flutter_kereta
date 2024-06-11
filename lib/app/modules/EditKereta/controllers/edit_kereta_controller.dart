@@ -45,13 +45,13 @@ class EditKeretaController extends GetxController {
             message: 'Data Kereta Berhasil di Update',
             duration: Duration(seconds: 3),
           ));
-          Get.back();
+          Get.offAllNamed(Routes.KERETA);
         } else {
           Get.showSnackbar(GetSnackBar(
             message: 'Tidak ada perubahan pada data',
             duration: Duration(seconds: 3),
           ));
-          Get.back();
+          Get.offAllNamed(Routes.KERETA);
         }
       }
     } catch (e) {
