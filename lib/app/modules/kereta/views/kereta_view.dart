@@ -39,6 +39,7 @@ class KeretaView extends GetView<KeretaController> {
                       print(controller.data.length);
                       var nomor = index + 1;
                       Kereta dt = controller.data[index];
+                      
                       return DataRow(cells: [
                         DataCell(Text(nomor.toString())),
                         DataCell(Text(dt.namaKereta)),

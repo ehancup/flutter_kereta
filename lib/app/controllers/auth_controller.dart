@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pas_xi_kereta/app/controllers/model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:pas_xi_kereta/app/routes/app_pages.dart';
 
@@ -12,6 +13,8 @@ class AuthController extends GetxController {
   RxBool isAdmin = false.obs;
 
   logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('isAdmin');
     await FirebaseAuth.instance.signOut();
     Get.offAllNamed(Routes.LOGIN);
   }
@@ -19,6 +22,9 @@ class AuthController extends GetxController {
   Stream streamAuthStatus = FirebaseAuth.instance.authStateChanges();
 
   login(String email, String pass) async {
+    // Obtain shared preferences.
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
     final db = FirebaseFirestore.instance;
     try {
       Get.defaultDialog(
@@ -33,16 +39,18 @@ class AuthController extends GetxController {
           .collection('admin')
           .where('uid', isEqualTo: credential.user!.uid)
           .get()
-          .then((value) {
+          .then((value) async {
         if (value.docs.isEmpty) {
           print('not admin');
           Get.offAllNamed(Routes.HOME);
+          await prefs.setBool('isAdmin', false);
           isAdmin.value = false;
         } else {
           isAdmin.value = true;
           for (var docSnapshot in value.docs) {
             print('${docSnapshot.id} => ${docSnapshot.data()}');
           }
+          await prefs.setBool('isAdmin', true);
           Get.offAllNamed(Routes.ADMIN);
         }
       });
