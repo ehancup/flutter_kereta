@@ -14,6 +14,9 @@ abstract class Routes {
   static const JADWAL = _Paths.JADWAL;
   static const ADD_JADWAL = _Paths.ADD_JADWAL;
   static const EDIT_JADWAL = _Paths.EDIT_JADWAL;
+  static const PAYMENT_METHOD = _Paths.PAYMENT_METHOD;
+  static const ADD_PAYMENT = _Paths.ADD_PAYMENT;
+  static const EDIT_PAYMENT = _Paths.EDIT_PAYMENT;
 }
 
 abstract class _Paths {
@@ -29,4 +32,7 @@ abstract class _Paths {
   static const JADWAL = '/jadwal';
   static const ADD_JADWAL = '/add-jadwal';
   static const EDIT_JADWAL = '/edit-jadwal';
+  static const PAYMENT_METHOD = '/payment-method';
+  static const ADD_PAYMENT = '/add-payment';
+  static const EDIT_PAYMENT = '/edit-payment';
 }

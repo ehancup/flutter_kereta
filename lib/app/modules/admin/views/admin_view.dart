@@ -54,9 +54,9 @@ class AdminView extends GetView<AdminController> {
               onTap: () => Get.offAllNamed(Routes.JADWAL),
             ),
             ListTile(
-              leading: Icon(Icons.analytics),
-              title: Text('Reports'),
-              onTap: () {},
+              leading: Icon(Icons.wallet),
+              title: Text('Metode Pembayaran'),
+              onTap: () => Get.offAllNamed(Routes.PAYMENT_METHOD),
             ),
             ListTile(
               leading: Icon(Icons.qr_code_scanner),
@@ -113,21 +113,11 @@ class AdminView extends GetView<AdminController> {
                     color: Colors.orangeAccent,
                     onTap: () => Get.toNamed(Routes.JADWAL),
                   ),
-                  // DashboardCard(
-                  //   icon: Icons.schedule,
-                  //   title: 'Attendance',
-                  //   color: Colors.orangeAccent,
-                  //   onTap: () {
-                  //     // Navigate to Attendance section
-                  //   },
-                  // ),
                   DashboardCard(
-                    icon: Icons.settings,
-                    title: 'Settings',
+                    icon: Icons.wallet,
+                    title: 'Metode Pembayaran',
                     color: Colors.redAccent,
-                    onTap: () {
-                      // Navigate to Settings section
-                    },
+                    onTap: () => Get.toNamed(Routes.PAYMENT_METHOD),
                   ),
                 ],
               ),
