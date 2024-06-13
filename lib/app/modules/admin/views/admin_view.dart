@@ -119,6 +119,12 @@ class AdminView extends GetView<AdminController> {
                     color: Colors.redAccent,
                     onTap: () => Get.toNamed(Routes.PAYMENT_METHOD),
                   ),
+                  DashboardCard(
+                    icon: Icons.percent_outlined,
+                    title: 'Diskon',
+                    color: Colors.redAccent,
+                    onTap: () => Get.toNamed(Routes.DISKON),
+                  ),
                 ],
               ),
             ),

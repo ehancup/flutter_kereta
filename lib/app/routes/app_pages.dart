@@ -6,12 +6,18 @@ import '../modules/EditKereta/bindings/edit_kereta_binding.dart';
 import '../modules/EditKereta/views/edit_kereta_view.dart';
 import '../modules/LupaPassword/bindings/lupa_password_binding.dart';
 import '../modules/LupaPassword/views/lupa_password_view.dart';
+import '../modules/addDiskon/bindings/add_diskon_binding.dart';
+import '../modules/addDiskon/views/add_diskon_view.dart';
 import '../modules/addJadwal/bindings/add_jadwal_binding.dart';
 import '../modules/addJadwal/views/add_jadwal_view.dart';
 import '../modules/add_payment/bindings/add_payment_binding.dart';
 import '../modules/add_payment/views/add_payment_view.dart';
 import '../modules/admin/bindings/admin_binding.dart';
 import '../modules/admin/views/admin_view.dart';
+import '../modules/diskon/bindings/diskon_binding.dart';
+import '../modules/diskon/views/diskon_view.dart';
+import '../modules/editDiskon/bindings/edit_diskon_binding.dart';
+import '../modules/editDiskon/views/edit_diskon_view.dart';
 import '../modules/editJadwal/bindings/edit_jadwal_binding.dart';
 import '../modules/editJadwal/views/edit_jadwal_view.dart';
 import '../modules/edit_payment/bindings/edit_payment_binding.dart';
@@ -106,6 +112,21 @@ class AppPages {
       name: _Paths.EDIT_PAYMENT,
       page: () => const EditPaymentView(),
       binding: EditPaymentBinding(),
+    ),
+    GetPage(
+      name: _Paths.DISKON,
+      page: () => const DiskonView(),
+      binding: DiskonBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_DISKON,
+      page: () => const AddDiskonView(),
+      binding: AddDiskonBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_DISKON,
+      page: () => const EditDiskonView(),
+      binding: EditDiskonBinding(),
     ),
   ];
 }

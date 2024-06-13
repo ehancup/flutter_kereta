@@ -17,6 +17,9 @@ abstract class Routes {
   static const PAYMENT_METHOD = _Paths.PAYMENT_METHOD;
   static const ADD_PAYMENT = _Paths.ADD_PAYMENT;
   static const EDIT_PAYMENT = _Paths.EDIT_PAYMENT;
+  static const DISKON = _Paths.DISKON;
+  static const ADD_DISKON = _Paths.ADD_DISKON;
+  static const EDIT_DISKON = _Paths.EDIT_DISKON;
 }
 
 abstract class _Paths {
@@ -35,4 +38,7 @@ abstract class _Paths {
   static const PAYMENT_METHOD = '/payment-method';
   static const ADD_PAYMENT = '/add-payment';
   static const EDIT_PAYMENT = '/edit-payment';
+  static const DISKON = '/diskon';
+  static const ADD_DISKON = '/add-diskon';
+  static const EDIT_DISKON = '/edit-diskon';
 }
