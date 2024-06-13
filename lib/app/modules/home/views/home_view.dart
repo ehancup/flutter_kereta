@@ -39,8 +39,7 @@ class HomeView extends GetView<HomeController> {
                         return InkWell(
                           onTap: () {
                             // Navigate to detail page or perform any action
-                            Get.offAllNamed(Routes.DETAIL_BOOKING,
-                                arguments: dt);
+                            Get.toNamed(Routes.DETAIL_BOOKING, arguments: dt);
                           },
                           child: Card(
                             margin: EdgeInsets.all(10),
