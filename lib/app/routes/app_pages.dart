@@ -1,7 +1,11 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:get/get.dart';
 
 import '../modules/AddKereta/bindings/add_kereta_binding.dart';
 import '../modules/AddKereta/views/add_kereta_view.dart';
+import '../modules/DetailBooking/bindings/detail_booking_binding.dart';
+import '../modules/DetailBooking/views/detail_booking_view.dart';
 import '../modules/EditKereta/bindings/edit_kereta_binding.dart';
 import '../modules/EditKereta/views/edit_kereta_view.dart';
 import '../modules/LupaPassword/bindings/lupa_password_binding.dart';
@@ -127,6 +131,11 @@ class AppPages {
       name: _Paths.EDIT_DISKON,
       page: () => const EditDiskonView(),
       binding: EditDiskonBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_BOOKING,
+      page: () => const DetailBookingView(),
+      binding: DetailBookingBinding(),
     ),
   ];
 }

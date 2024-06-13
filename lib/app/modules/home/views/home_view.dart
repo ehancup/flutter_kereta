@@ -1,7 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:pas_xi_kereta/app/controllers/auth_controller.dart';
+import 'package:pas_xi_kereta/app/modules/DetailBooking/views/detail_booking_view.dart';
+import 'package:pas_xi_kereta/app/modules/jadwal/model/model.dart';
 import 'package:pas_xi_kereta/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -17,18 +22,65 @@ class HomeView extends GetView<HomeController> {
         title: const Text('HomeView'),
         centerTitle: true,
       ),
-      body: Column(
-        children: [
-          Center(
-            child: IconButton(
-                onPressed: () => auth.logout(), icon: Icon(Icons.logout)),
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Obx(() => controller.status.value
+                  ? ListView.builder(
+                      itemCount: controller.data.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        var nomor = index + 1;
+                        Jadwal dt = controller.data[index];
+                        print(dt);
+                        return InkWell(
+                          onTap: () {
+                            // Navigate to detail page or perform any action
+                            Get.offAllNamed(Routes.DETAIL_BOOKING,
+                                arguments: dt);
+                          },
+                          child: Card(
+                            margin: EdgeInsets.all(10),
+                            elevation: 5,
+                            child: Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('No: $nomor',
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold)),
+                                    SizedBox(height: 5),
+                                    Text('Tujuan: ${dt.jadwal.tujuan}',
+                                        style: TextStyle(fontSize: 16)),
+                                    SizedBox(height: 5),
+                                    Text(
+                                        'Berangkat: ${DateFormat('dd MMM yyyy').format(dt.jadwal.berangkat)}',
+                                        style: TextStyle(fontSize: 16)),
+                                    SizedBox(height: 10),
+                                    Text(
+                                        'Tiba: ${DateFormat('dd MMM yyyy').format(dt.jadwal.tiba)}',
+                                        style: TextStyle(fontSize: 16)),
+                                    SizedBox(height: 10),
+                                    Text('Kereta: ${dt.kereta.namaKereta}',
+                                        style: TextStyle(fontSize: 16)),
+                                    SizedBox(height: 10),
+                                  ]),
+                            ),
+                          ),
+                        );
+                      },
+                    )
+                  : Center(
+                      child: CircularProgressIndicator(),
+                    )),
+            ],
           ),
-          Center(
-              child: IconButton(
-            onPressed: () => Get.offAllNamed(Routes.KERETA),
-            icon: Icon(Icons.data_array_outlined),
-          )),
-        ],
+        ),
       ),
     );
   }

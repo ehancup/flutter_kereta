@@ -59,6 +59,11 @@ class AdminView extends GetView<AdminController> {
               onTap: () => Get.offAllNamed(Routes.PAYMENT_METHOD),
             ),
             ListTile(
+              leading: Icon(Icons.percent_outlined),
+              title: Text('Diskon'),
+              onTap: () => Get.offAllNamed(Routes.DISKON),
+            ),
+            ListTile(
               leading: Icon(Icons.qr_code_scanner),
               title: Text('Scan QR Code'),
               onTap: () {},
@@ -96,10 +101,10 @@ class AdminView extends GetView<AdminController> {
                 crossAxisCount: 2,
                 children: [
                   DashboardCard(
-                    icon: Icons.people,
-                    title: 'Users',
-                    color: Colors.blueAccent,
-                    onTap: () {},
+                    icon: Icons.percent_outlined,
+                    title: 'Diskon',
+                    color: Colors.blue,
+                    onTap: () => Get.toNamed(Routes.DISKON),
                   ),
                   DashboardCard(
                     icon: Icons.train,
@@ -118,12 +123,6 @@ class AdminView extends GetView<AdminController> {
                     title: 'Metode Pembayaran',
                     color: Colors.redAccent,
                     onTap: () => Get.toNamed(Routes.PAYMENT_METHOD),
-                  ),
-                  DashboardCard(
-                    icon: Icons.percent_outlined,
-                    title: 'Diskon',
-                    color: Colors.redAccent,
-                    onTap: () => Get.toNamed(Routes.DISKON),
                   ),
                 ],
               ),
