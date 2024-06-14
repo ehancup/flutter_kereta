@@ -36,6 +36,8 @@ import '../modules/myticket/bindings/myticket_binding.dart';
 import '../modules/myticket/views/myticket_view.dart';
 import '../modules/payment_method/bindings/payment_method_binding.dart';
 import '../modules/payment_method/views/payment_method_view.dart';
+import '../modules/qrScan/bindings/qr_scan_binding.dart';
+import '../modules/qrScan/views/qr_scan_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/scanqr/bindings/scanqr_binding.dart';
@@ -150,6 +152,11 @@ class AppPages {
       name: _Paths.SCANQR,
       page: () => const ScanqrView(),
       binding: ScanqrBinding(),
+    ),
+    GetPage(
+      name: _Paths.QR_SCAN,
+      page: () => QrScanView(),
+      binding: QrScanBinding(),
     ),
   ];
 }
