@@ -19,7 +19,7 @@ class DetailBookingView extends GetView<DetailBookingController> {
     final paymentCtrl =
         Get.put(PaymentMethodController()); // Access PaymentMethodController
 
-    Jadwal data = Get.arguments;
+    Jadwal data = Get.arguments as Jadwal;
     controller.harga.value = data.jadwal.harga; // Set the initial price
 
     return Scaffold(
@@ -114,10 +114,8 @@ class DetailBookingView extends GetView<DetailBookingController> {
                             ],
                             onChanged: (e) {
                               if (e != null) {
-                                controller.setPayment(
-                                    e);
-                                print(
-                                    'Payment method: $e');
+                                controller.setPayment(e);
+                                print('Payment method: $e');
                               }
                             },
                           )
@@ -168,11 +166,22 @@ class DetailBookingView extends GetView<DetailBookingController> {
                   ],
                 )),
             Gap(24),
-            ElevatedButton(
-              onPressed: () {
-                Get.offAllNamed(Routes.HOME);
-              },
-              child: Text('Kembali'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    Get.offAllNamed(Routes.HOME);
+                  },
+                  child: Text('Kembali'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    controller.handleBooking(data.id);
+                  },
+                  child: Text('Pesan'),
+                ),
+              ],
             ),
           ],
         ),

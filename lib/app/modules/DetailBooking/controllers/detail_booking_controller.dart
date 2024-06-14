@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pas_xi_kereta/app/modules/jadwal/model/model.dart';
+import 'package:pas_xi_kereta/app/routes/app_pages.dart';
 
 class DetailBookingController extends GetxController {
   TextEditingController nama = TextEditingController();
+  final fs = FirebaseFirestore.instance;
+  final auth = FirebaseAuth.instance;
   RxString payment = ''.obs;
   RxInt jumlahTiket = 1.obs;
   RxInt harga = 0.obs;
@@ -44,6 +49,58 @@ class DetailBookingController extends GetxController {
     totalHarga.value = total - discount.value;
     print('Total Harga setelah diskon: ${totalHarga.value}');
   }
+
+  handleBooking(String jadwalId) async {
+    print(auth.currentUser!.uid);
+    CollectionReference transaksiCol = fs.collection("transaksi");
+    if (payment != '' && nama.text != '') {
+      DocumentReference jadwalRef = fs.collection('jadwal').doc(jadwalId);
+      DocumentReference paymentRef =
+          fs.collection('metode_pembayaran').doc(payment.value);
+
+      final pemesanan = {
+        "is_scan": false,
+        "jadwal": jadwalRef,
+        "jumlah_tiket": jumlahTiket.value,
+        "metode_pembayaran": paymentRef,
+        "nama": nama.text,
+        "total_harga": totalHarga.value,
+        "user_id": auth.currentUser!.uid
+      };
+
+      try {
+        await transaksiCol.add(pemesanan).then((value) {
+          Get.showSnackbar(GetSnackBar(
+            title: 'Success',
+            message: 'Berhasil Membeli Tiket',
+            duration: Duration(seconds: 3),
+          ));
+        });
+        Get.offAllNamed(Routes.HOME);
+      } catch (e) {
+        Get.showSnackbar(GetSnackBar(
+          title: 'error',
+          message: 'error - $e',
+          duration: Duration(seconds: 3),
+        ));
+
+        Get.offAllNamed(Routes.HOME);
+      }
+    } else {
+      Get.showSnackbar(GetSnackBar(
+        title: 'Warning',
+        message: 'please select payment method and input name',
+        duration: Duration(seconds: 3),
+      ));
+    }
+  }
+
+  // scanQr() async {
+  //   String qr = await FlutterBarcodeScanner.scanBarcode(
+  //       "#000000", "Batal", true, ScanMode.QR);
+
+  //   Get.defaultDialog(middleText: "hasil scan adalah ${qr}");
+  // }
 
   void setTicketCount(int count) {
     jumlahTiket.value = count;

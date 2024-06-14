@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:get/get.dart';
 
 import '../modules/AddKereta/bindings/add_kereta_binding.dart';
@@ -34,10 +32,16 @@ import '../modules/kereta/bindings/kereta_binding.dart';
 import '../modules/kereta/views/kereta_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/myticket/bindings/myticket_binding.dart';
+import '../modules/myticket/views/myticket_view.dart';
 import '../modules/payment_method/bindings/payment_method_binding.dart';
 import '../modules/payment_method/views/payment_method_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/scanqr/bindings/scanqr_binding.dart';
+import '../modules/scanqr/views/scanqr_view.dart';
+
+// ignore_for_file: constant_identifier_names
 
 part 'app_routes.dart';
 
@@ -136,6 +140,16 @@ class AppPages {
       name: _Paths.DETAIL_BOOKING,
       page: () => const DetailBookingView(),
       binding: DetailBookingBinding(),
+    ),
+    GetPage(
+      name: _Paths.MYTICKET,
+      page: () => const MyticketView(),
+      binding: MyticketBinding(),
+    ),
+    GetPage(
+      name: _Paths.SCANQR,
+      page: () => const ScanqrView(),
+      binding: ScanqrBinding(),
     ),
   ];
 }

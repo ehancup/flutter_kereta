@@ -23,6 +23,8 @@ abstract class Routes {
   static const ADD_DISKON = _Paths.ADD_DISKON;
   static const EDIT_DISKON = _Paths.EDIT_DISKON;
   static const DETAIL_BOOKING = _Paths.DETAIL_BOOKING;
+  static const MYTICKET = _Paths.MYTICKET;
+  static const SCANQR = _Paths.SCANQR;
 }
 
 abstract class _Paths {
@@ -45,4 +47,6 @@ abstract class _Paths {
   static const ADD_DISKON = '/add-diskon';
   static const EDIT_DISKON = '/edit-diskon';
   static const DETAIL_BOOKING = '/detail-booking';
+  static const MYTICKET = '/myticket';
+  static const SCANQR = '/scanqr';
 }

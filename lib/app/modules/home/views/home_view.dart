@@ -44,6 +44,11 @@ class HomeView extends GetView<HomeController> {
               onTap: () {},
             ),
             ListTile(
+              leading: Icon(Icons.train_rounded),
+              title: Text('My Ticket'),
+              onTap: () => Get.toNamed(Routes.MYTICKET),
+            ),
+            ListTile(
               leading: Icon(Icons.settings),
               title: Text('Settings'),
               onTap: () {
