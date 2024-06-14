@@ -66,7 +66,7 @@ class AdminView extends GetView<AdminController> {
             ListTile(
               leading: Icon(Icons.qr_code_scanner),
               title: Text('Scan QR Code'),
-              onTap: () {},
+              onTap: () => controller.scanQr(),
             ),
             ListTile(
               leading: Icon(Icons.settings),
