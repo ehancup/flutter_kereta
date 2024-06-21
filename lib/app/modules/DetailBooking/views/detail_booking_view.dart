@@ -21,7 +21,7 @@ class DetailBookingView extends GetView<DetailBookingController> {
 
     Jadwal data = Get.arguments as Jadwal;
     controller.harga.value = data.jadwal.harga; // Set the initial price
-
+    controller.tujuan.value = data.jadwal.tujuan;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Booking'),

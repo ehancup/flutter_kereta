@@ -1,19 +1,16 @@
-// ignore_for_file: unused_import
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:get/get.dart';
 import 'package:pas_xi_kereta/app/modules/myticket/model/model.dart';
 
-class MyticketController extends GetxController {
+class HistoriController extends GetxController {
   FirebaseFirestore fs = FirebaseFirestore.instance;
   FirebaseAuth auth = FirebaseAuth.instance;
   RxBool status = false.obs;
   List<Transaksi> data = [];
 
-  getDataTransaksi() async {
+  getDataHistoriTransaksi() async {
     String userId = auth.currentUser?.uid ?? '';
 
     if (userId.isEmpty) {
@@ -22,6 +19,7 @@ class MyticketController extends GetxController {
     }
     final transaksi = await fs
         .collection('transaksi')
+        .where('is_scan', isEqualTo: true)
         .where('user_id', isEqualTo: userId)
         .get();
 
@@ -78,7 +76,7 @@ class MyticketController extends GetxController {
   final count = 0.obs;
   @override
   void onInit() {
-    getDataTransaksi();
+    getDataHistoriTransaksi();
     super.onInit();
   }
 }

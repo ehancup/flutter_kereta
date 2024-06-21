@@ -15,6 +15,7 @@ class DetailBookingController extends GetxController {
   RxDouble discount = 0.0.obs;
   RxDouble totalHarga = 0.0.obs;
   List<JadwalClass> data = [];
+  RxString tujuan = "".obs;
 
   void setPayment(String p) {
     print("payment do");
@@ -32,18 +33,17 @@ class DetailBookingController extends GetxController {
     print('Total Harga sebelum diskon: $total');
 
     if (payment.value == 'RfwewDFrGEZn4eVKcygd') {
-      discount.value = total * 0.20;
+      discount.value = discount.value + (total * 0.20);
       print('Diskon MQ Pay: ${discount.value}');
-    } else if (jumlahTiket.value >= 5) {
-      discount.value = total * 0.05;
+    }
+    if (jumlahTiket.value >= 5) {
+      discount.value = discount.value + (total * 0.05);
       print(
           'Diskon Pembelin tiket lebih atau sama dengan 5: ${discount.value}');
-    } else if (data.isNotEmpty && data[0].tujuan == 'surabaya') {
-      discount.value = total * 0.10;
+    }
+    if (tujuan.value == 'surabaya') {
+      discount.value = discount.value + (total * 0.10);
       print('Diskon tujuan Surabaya: ${discount.value}');
-    } else {
-      discount.value = 0.0;
-      print('Tidak ada diskon');
     }
 
     totalHarga.value = total - discount.value;
@@ -94,13 +94,6 @@ class DetailBookingController extends GetxController {
       ));
     }
   }
-
-  // scanQr() async {
-  //   String qr = await FlutterBarcodeScanner.scanBarcode(
-  //       "#000000", "Batal", true, ScanMode.QR);
-
-  //   Get.defaultDialog(middleText: "hasil scan adalah ${qr}");
-  // }
 
   void setTicketCount(int count) {
     jumlahTiket.value = count;

@@ -24,6 +24,8 @@ import '../modules/editJadwal/bindings/edit_jadwal_binding.dart';
 import '../modules/editJadwal/views/edit_jadwal_view.dart';
 import '../modules/edit_payment/bindings/edit_payment_binding.dart';
 import '../modules/edit_payment/views/edit_payment_view.dart';
+import '../modules/histori/bindings/histori_binding.dart';
+import '../modules/histori/views/histori_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/jadwal/bindings/jadwal_binding.dart';
@@ -157,6 +159,11 @@ class AppPages {
       name: _Paths.QR_SCAN,
       page: () => QrScanView(),
       binding: QrScanBinding(),
+    ),
+    GetPage(
+      name: _Paths.HISTORI,
+      page: () => const HistoriView(),
+      binding: HistoriBinding(),
     ),
   ];
 }

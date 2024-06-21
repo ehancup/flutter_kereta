@@ -26,6 +26,7 @@ abstract class Routes {
   static const MYTICKET = _Paths.MYTICKET;
   static const SCANQR = _Paths.SCANQR;
   static const QR_SCAN = _Paths.QR_SCAN;
+  static const HISTORI = _Paths.HISTORI;
 }
 
 abstract class _Paths {
@@ -51,4 +52,5 @@ abstract class _Paths {
   static const MYTICKET = '/myticket';
   static const SCANQR = '/scanqr';
   static const QR_SCAN = '/qr-scan';
+  static const HISTORI = '/histori';
 }

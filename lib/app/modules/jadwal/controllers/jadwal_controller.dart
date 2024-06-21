@@ -22,14 +22,19 @@ class JadwalController extends GetxController {
 
         final keretaId = keretaRef.id;
 
-        final keretaDocs = await fs.collection('kereta').doc(keretaId).get();
-        final keretaData = keretaDocs.data() as Map;
-        Jadwal schedule = Jadwal.fromJson(Map.from(jadwalData),
-            Map.from(keretaData), jadwalId, keretaDocs.id);
-
         try {
-          data.add(schedule);
-          // print('berhasil');
+          final keretaDocs = await fs.collection('kereta').doc(keretaId).get();
+
+          final keretaData = keretaDocs.data() as Map;
+          Jadwal schedule = Jadwal.fromJson(Map.from(jadwalData),
+              Map.from(keretaData), jadwalId, keretaDocs.id);
+
+          try {
+            data.add(schedule);
+            // print('berhasil');
+          } catch (e) {
+            print(e);
+          }
         } catch (e) {
           print(e);
         }
